@@ -40,16 +40,17 @@ L'enjeu de cette étude était d'auditer la rentabilité de la croissance, la st
 
 ---
 
-## 🛠️ Modélisation SQL & Pièges Techniques Évités
+## 🛠️ Approche Technique & Modélisation SQL
 
-### 1. Résolution du Fan-out / Produit Cartésien
+Pour cette analyse, plusieurs défis d'intégrité de données ont été traités :
 
-Un compte client pouvant souscrire plusieurs contrats successifs, une jointure naïve `account_id` multipliait artificiellement les métriques de churn. La jointure a été bornée dans le temps :
+* **Résolution du fan-out (produit cartésien) :** Un compte pouvant avoir plusieurs contrats successifs, la jointure sur les événements de churn a été strictement bornée dans le temps pour éviter la duplication artificielle des métriques :
+<pre><code class="language-sql">ON c.account_id = s.account_id 
+AND c.churn_date &gt;= s.start_date 
+AND (s.end_date IS NULL OR c.churn_date &lt;= s.end_date)</code></pre>
+* **Cohérence temporelle (Net New MRR) :** Utilisation de CTEs mensuelles et de `COALESCE` pour réconcilier les flux d'acquisition et d'attrition sans perdre les mois sans churn.
+* **Segmentation & Root Cause :** Agrégation multidimensionnelle par code motif (`reason_code`) pour quantifier financièrement l'impact produit vs pricing.
 
+👉 *L'ensemble des requêtes de nettoyage, CTEs et calculs avancés est consultable dans les fichiers sources ci-dessus.*
 
-```sql
-JOIN ravenstack_subscriptions s 
-    ON c.account_id = s.account_id 
-   AND c.churn_date >= s.start_date 
-   AND (s.end_date IS NULL OR c.churn_date <= s.end_date)
 
