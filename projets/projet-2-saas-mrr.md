@@ -27,16 +27,6 @@ L'enjeu de cette étude était d'auditer la rentabilité de la croissance, la st
 
 ---
 
-<p>
-  <a href="01_net_new_mrr.sql" download style="display: inline-block; padding: 8px 16px; background-color: #2ea44f; color: white; border-radius: 6px; text-decoration: none; font-weight: bold; margin-right: 10px;">
-    ⬇️ Télécharger 01_net_new_mrr.sql
-  </a>
-  <a href="02_churn_root_cause.sql" download style="display: inline-block; padding: 8px 16px; background-color: #2ea44f; color: white; border-radius: 6px; text-decoration: none; font-weight: bold;">
-    ⬇️ Télécharger 02_churn_root_cause.sql
-  </a>
-</p>
-
-
 ## 📊 Dashboard Interactif
 
 *(Insère ici la capture d'écran de ton rapport Power BI / Tableau ou le lien public)*
