@@ -40,9 +40,11 @@ Un compte client pouvant souscrire plusieurs contrats successifs, une jointure n
 
 Un compte client pouvant souscrire plusieurs contrats successifs, une jointure naïve `account_id` multipliait artificiellement les métriques de churn. La jointure a été bornée dans le temps :
 
+La jointure a été bornée dans le temps :
 
-    JOIN ravenstack_subscriptions s 
-        ON c.account_id = s.account_id 
-       AND c.churn_date >= s.start_date 
-       AND (s.end_date IS NULL OR c.churn_date <= s.end_date)
-
+{% highlight sql %}
+JOIN ravenstack_subscriptions s 
+    ON c.account_id = s.account_id 
+   AND c.churn_date >= s.start_date 
+   AND (s.end_date IS NULL OR c.churn_date <= s.end_date)
+{% endhighlight %}
