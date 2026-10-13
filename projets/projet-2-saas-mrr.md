@@ -34,8 +34,8 @@ L'enjeu de cette étude était d'auditer la rentabilité de la croissance, la st
 ---
 
 ### 📁 Scripts SQL sources
-* 🔗 [Consulter 01_net_new_mrr.sql sur GitHub](https://github.com/solenesct/solenesct.github.io/blob/main/projets/01_net_new_mrr.sql)
-* 🔗 [Consulter 02_churn_root_cause.sql sur GitHub](https://github.com/solenesct/solenesct.github.io/blob/main/projets/02_churn_root_cause.sql)
+* 🔗 [Consulter 01_schema_and_cleaning.sql sur GitHub](https://github.com/solenesct/solenesct.github.io/blob/main/projets/01_schema_and_cleaning.sql)
+* 🔗 [Consulter 02_mrr_analysis.sql sur GitHub](https://github.com/solenesct/solenesct.github.io/blob/main/projets/02_mrr_analysis.sql)
 
 ## 🛠️ Modélisation SQL & Pièges Techniques Évités
 
