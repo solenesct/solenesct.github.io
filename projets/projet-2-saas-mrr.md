@@ -33,6 +33,11 @@ L'enjeu de cette étude était d'auditer la rentabilité de la croissance, la st
 
 ---
 
+### 📁 Scripts SQL sources
+* 📄 [Télécharger / Voir le script Net New MRR (01_net_new_mrr.sql)](01_net_new_mrr.sql)
+* 📄 [Télécharger / Voir le script Diagnostic Churn (02_churn_root_cause.sql)](02_churn_root_cause.sql)
+  
+
 ## 🛠️ Modélisation SQL & Pièges Techniques Évités
 
 ### 1. Résolution du Fan-out / Produit Cartésien
@@ -41,7 +46,6 @@ Un compte client pouvant souscrire plusieurs contrats successifs, une jointure n
 Un compte client pouvant souscrire plusieurs contrats successifs, une jointure naïve `account_id` multipliait artificiellement les métriques de churn. La jointure a été bornée dans le temps :
 
 
-La jointure a été bornée dans le temps :
 
 ```sql
 JOIN ravenstack_subscriptions s 
