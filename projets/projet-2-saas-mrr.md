@@ -1,6 +1,6 @@
 # SaaS Analytics & Corporate Finance : Diagnostic MRR & Rétention (RavenStack)
 
-[← Retour au portfolio](index.md)
+[← Retour au portfolio](../)
 
 ---
 
