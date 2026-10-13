@@ -38,8 +38,10 @@ L'enjeu de cette étude était d'auditer la rentabilité de la croissance, la st
 ### 1. Résolution du Fan-out / Produit Cartésien
 Un compte client pouvant souscrire plusieurs contrats successifs, une jointure naïve `account_id` multipliait artificiellement les métriques de churn. La jointure a été bornée dans le temps :
 
+Un compte client pouvant souscrire plusieurs contrats successifs, une jointure naïve `account_id` multipliait artificiellement les métriques de churn. La jointure a été bornée dans le temps :
+
 ```sql
 JOIN ravenstack_subscriptions s 
-    ON c.account_id = s.account_id
-   AND c.churn_date >= s.start_date
+    ON c.account_id = s.account_id 
+   AND c.churn_date >= s.start_date 
    AND (s.end_date IS NULL OR c.churn_date <= s.end_date)
