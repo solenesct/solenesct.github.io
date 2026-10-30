@@ -29,7 +29,7 @@ L'enjeu de cette étude était d'auditer la rentabilité de la croissance, la st
 
 ## 📊 Dashboard Interactif
 
-*(Insère ici la capture d'écran de ton rapport Power BI / Tableau ou le lien public)*
+![Dashboard Power BI RavenStack](dashboard_SaaS.png)
 
 ---
 
