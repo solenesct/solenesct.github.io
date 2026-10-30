@@ -16,7 +16,7 @@ Stack technique : **Excel** · **SQL** · **Python** · **Power BI**
 ### 2. Corporate Finance & SaaS : Performance MRR, Croissance Nette & Diagnostic du Churn
 * **Outils :** SQL (PostgreSQL, CTEs, Jointures temporelles), Power BI / Tableau
 * **Objectif :** Reconstituer le Net New MRR sur 11,34 M$ de volume d'affaires, auditer la dépendance au segment Enterprise (75 % du revenu) et isoler les causes profondes de perte de MRR (1,33 M$ perdus sur le produit vs 800 k$ sur le prix).
-  * 📄 [Voir l'étude de cas complète & Visualisations](projets/projet-2-saas-mrr.md)
+  * 📄 [Voir l'étude de cas complète & Visualisations](Saas/projet-2-saas-mrr.md)
 
 ### 3. Énergie & Réseau : Modélisation des Pics de Consommation & Mix Électrique
 * **Outils :** Python (API RTE éCO2mix, Séries temporelles), SQL
