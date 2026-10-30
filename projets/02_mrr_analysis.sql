@@ -56,10 +56,26 @@ LEFT JOIN churn c ON n.mois = c.mois
 ORDER BY n.mois ASC;
 
 --Pourquoi les clients partent ?--
-select c.reason_code, COUNT(distinct c.churn_event_id) as nb_resilie, SUM(s.mrr_amount) as total_mrr_detruit, SUM(c.refund_amount_usd) as remboursement
-from ravenstack_churn_events c
-JOIN ravenstack_subscriptions s ON c.account_id = s.account_id
-   AND c.churn_date >= s.start_date
-   AND (s.end_date IS NULL OR c.churn_date <= s.end_date)
-group by c.reason_code
-order by total_mrr_detruit DESC;
+WITH churn_avec_mrr AS (
+    SELECT 
+        c.churn_event_id,
+        c.account_id,
+        c.reason_code,
+        c.refund_amount_usd,
+        COALESCE(SUM(s.mrr_amount), 0) AS mrr_perdu_evenement
+    FROM ravenstack_churn_events c
+    LEFT JOIN ravenstack_subscriptions s 
+        ON c.account_id = s.account_id
+       AND c.churn_date >= s.start_date
+       AND (s.end_date IS NULL OR c.churn_date <= s.end_date)
+    GROUP BY c.churn_event_id, c.account_id, c.reason_code, c.refund_amount_usd
+)
+SELECT 
+    reason_code,
+    COUNT(DISTINCT account_id)           AS nb_clients_perdus,
+    COUNT(churn_event_id)                AS nb_events_resiliation,
+    SUM(mrr_perdu_evenement)             AS total_mrr_detruit,
+    SUM(refund_amount_usd)               AS total_remboursements
+FROM churn_avec_mrr
+GROUP BY reason_code
+ORDER BY total_mrr_detruit DESC;
